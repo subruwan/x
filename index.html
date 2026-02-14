@@ -3,32 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Labs | Guides & Thoughts</title>
+    <title>TechLabs | Experiments</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">Tech<span>Labs</span></div>
+            <a href="index.html" class="logo">Tech<span>Labs</span></a>
             <div class="nav-right">
-                <input type="text" id="searchInput" placeholder="Search guides...">
+                <input type="text" id="searchInput" placeholder="Search...">
                 <button id="themeToggle" aria-label="Toggle Dark Mode"></button>
             </div>
         </nav>
     </header>
-
-    <main id="content">
-        <section class="feed">
+    <main>
+        <div class="feed">
             <article class="post-card">
-                <span class="category">Troubleshooting</span>
-                <h2>Fixing GRUB Bootloader on UEFI</h2>
-                <p>A quick note on recovering lost partitions after a Windows update...</p>
+                <span class="category">Practical Guide</span>
+                <h2><a href="posts/rclone-guide.html">Automated Backups with Rclone</a></h2>
+                <p>Testing cloud sync efficiency on Linux...</p>
                 <time>Feb 14, 2026</time>
             </article>
-            </section>
+            </div>
     </main>
-
     <script src="script.js"></script>
 </body>
 </html>
