@@ -1,76 +1,75 @@
-/* ===== Reset & Base ===== */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    background-color: #f5f5f5;
-    color: #222;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-body.dark {
-    background-color: #121212;
-    color: #e0e0e0;
-}
-
-/* Compact Header */
+/* ===== Compact Top Section ===== */
 header {
-    text-align: center;
-    padding: 15px 20px;  /* Reduced from 25px */
     background-color: #1e1e1e;
     color: #fff;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 1.8rem;   /* Slightly smaller */
-}
-
-header p {
-    margin: 5px 0 0 0;
-    font-size: 1rem;     /* Slightly smaller subtitle */
-}
-
-/* ===== Navigation ===== */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 10px 20px;
-    background-color: #eaeaea;
 }
 
-body.dark nav {
-    background-color: #1f1f1f;
-}
-
-.nav-left a {
-    text-decoration: none;
-    margin-right: 15px;
-    font-weight: 500;
-    color: #222;
-    transition: color 0.3s;
-}
-
-body.dark .nav-left a {
-    color: #fff;
-}
-
-.nav-left a:hover {
-    text-decoration: underline;
-}
-
-.nav-right {
+/* Container for all top elements */
+.top-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Site title */
+.site-title h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.site-title p {
+    margin: 2px 0 0 0;
+    font-size: 0.9rem;
+}
+
+/* Nav + tools container */
+.nav-tools {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
+/* Nav links */
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Tools: search + theme toggle */
+.tools-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
 #searchInput {
-    padding: 5px 8px;
+    padding: 4px 8px;
     border-radius: 4px;
-    border: 1px solid #ccc;
+    border: 1px solid #555;
+    font-size: 0.85rem;
+    background-color: #2a2a2a;
+    color: #fff;
+}
+
+#themeToggle {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* ===== Dark Mode ===== */
+body.dark header {
+    background-color: #1f1f1f;
 }
 
 body.dark #searchInput {
@@ -79,36 +78,25 @@ body.dark #searchInput {
     border: 1px solid #555;
 }
 
-#themeToggle {
-    cursor: pointer;
-    font-size: 18px;
-}
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    .nav-tools {
+        flex-direction: column;
+        gap: 6px;
+    }
 
-/* ===== Main Content ===== */
-.container {
-    max-width: 900px;
-    margin: 25px auto;
-    padding: 20px;
-    background-color: #fff;
-    transition: background-color 0.3s;
-}
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
 
-body.dark .container {
-    background-color: #1e1e1e;
-}
+    .tools-right {
+        justify-content: center;
+    }
 
-/* ===== Posts ===== */
-.post-preview {
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #ddd;
-}
-
-/* ===== Footer ===== */
-footer {
-    text-align: center;
-    padding: 15px;
-    background-color: #1e1e1e;
-    color: #fff;
-    margin-top: 30px;
+    #searchInput {
+        width: 120px;
+    }
 }
