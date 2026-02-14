@@ -1,10 +1,11 @@
+/* ===== Reset & Base ===== */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
     background-color: #f5f5f5;
-    color: #333;
+    color: #222;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -13,26 +14,37 @@ body.dark {
     color: #e0e0e0;
 }
 
+/* ===== Header ===== */
 header {
-    background: #1e1e1e;
-    color: #fff;
-    padding: 25px 0;
     text-align: center;
+    padding: 25px 20px;
+    background-color: #1e1e1e;
+    color: #fff;
 }
 
+/* ===== Navigation ===== */
 nav {
-    background: #eaeaea;
-    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 20px;
+    background-color: #eaeaea;
+}
+
+body.dark nav {
+    background-color: #1f1f1f;
 }
 
 .nav-left a {
-    color: #222;
     text-decoration: none;
     margin-right: 15px;
     font-weight: 500;
+    color: #222;
+    transition: color 0.3s;
+}
+
+body.dark .nav-left a {
+    color: #fff;
 }
 
 .nav-left a:hover {
@@ -47,6 +59,14 @@ nav {
 
 #searchInput {
     padding: 5px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+body.dark #searchInput {
+    background-color: #2a2a2a;
+    color: #fff;
+    border: 1px solid #555;
 }
 
 #themeToggle {
@@ -54,25 +74,31 @@ nav {
     font-size: 18px;
 }
 
-/* Dark mode */
-body.dark nav {
-    background: #1f1f1f;
+/* ===== Main Content ===== */
+.container {
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 20px;
+    background-color: #fff;
+    transition: background-color 0.3s;
 }
 
-body.dark .nav-left a {
-    color: #ffffff;
+body.dark .container {
+    background-color: #1e1e1e;
 }
 
-footer {
-    text-align: center;
-    padding: 15px;
-    background: #1e1e1e;
-    color: #fff;
-    margin-top: 30px;
-}
-
+/* ===== Posts ===== */
 .post-preview {
     margin-bottom: 25px;
     padding-bottom: 15px;
     border-bottom: 1px solid #ddd;
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #1e1e1e;
+    color: #fff;
+    margin-top: 30px;
 }
