@@ -48,3 +48,10 @@ document.querySelectorAll('.toc a').forEach(anchor => {
         if (target) window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
     });
 });
+
+// Auto-duplicate Ticker Items for seamless loop
+const ticker = document.getElementById('tickerContent');
+if (ticker) {
+    const clone = ticker.innerHTML;
+    ticker.innerHTML += clone; // This doubles the content automatically
+}
