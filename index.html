@@ -89,6 +89,7 @@
     <a href="#">Tech</a>
     <a href="#">News</a>
     <a href="#">About</a>
+    <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchPosts()" />
 </nav>
 
 <div class="container">
@@ -105,17 +106,17 @@
     <section>
         <h2 class="section-title">Latest Posts</h2>
 
-        <div class="post-preview">
+        <div class="post-preview" data-title="How to Fully Remove Tor Browser from Linux Mint">
             <h3><a href="#">How to Fully Remove Tor Browser from Linux Mint</a></h3>
             <p>Step-by-step removal guide and cleanup process.</p>
         </div>
 
-        <div class="post-preview">
+        <div class="post-preview" data-title="Fix: USB Drive Not Opening After Format">
             <h3><a href="#">Fix: USB Drive Not Opening After Format</a></h3>
             <p>Simple working solution using proper filesystem formatting.</p>
         </div>
 
-        <div class="post-preview">
+        <div class="post-preview" data-title="Thoughts on [Recent News Topic]">
             <h3><a href="#">Thoughts on [Recent News Topic]</a></h3>
             <p>A practical look at how this issue affects everyday life.</p>
         </div>
@@ -128,5 +129,22 @@
     <p>© 2026 Ruwan Kariyawasam | Built with GitHub Pages</p>
 </footer>
 
+<script>
+function searchPosts() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let posts = document.getElementsByClassName("post-preview");
+
+    for (let i = 0; i < posts.length; i++) {
+        let title = posts[i].getAttribute("data-title").toLowerCase();
+
+        if (title.includes(input)) {
+            posts[i].style.display = "";
+        } else {
+            posts[i].style.display = "none";
+        }
+    }
+}
+</script>
+    
 </body>
 </html>
