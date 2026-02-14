@@ -11,23 +11,26 @@
 <body>
 
 <header>
-    <h1>Ruwan Kariyawasam</h1>
-    <p>Tech Experiments, Practical Guides & Daily News Thoughts</p>
+    <div class="top-container">
+        <div class="site-title">
+            <h1>Ruwan Kariyawasam</h1>
+            <p>Tech Experiments, Practical Guides & Daily News Thoughts</p>
+        </div>
+
+        <div class="nav-tools">
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="tech.html">Tech</a>
+                <a href="news.html">News</a>
+                <a href="about.html">About</a>
+            </nav>
+            <div class="tools-right">
+                <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchPosts()">
+                <span id="themeToggle" onclick="toggleDarkMode()" title="Toggle Theme">🌙</span>
+            </div>
+        </div>
+    </div>
 </header>
-
-<nav>
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="tech.html">Tech</a>
-        <a href="news.html">News</a>
-        <a href="about.html">About</a>
-    </div>
-
-    <div class="nav-tools">
-        <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchPosts()">
-        <span id="themeToggle" onclick="toggleDarkMode()" title="Toggle Theme">🌙</span>
-    </div>
-</nav>
 
 <main class="container">
 
