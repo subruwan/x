@@ -21,31 +21,46 @@ header {
 }
 
 nav {
-    background: #eaeaea;   /* Light background */
+    background: #eaeaea;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-nav a {
-    color: #222;           /* Dark text in light mode */
+.nav-left a {
+    color: #222;
     text-decoration: none;
     margin-right: 15px;
     font-weight: 500;
 }
 
-nav a:hover {
+.nav-left a:hover {
     text-decoration: underline;
 }
 
-/* Dark mode styles */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#searchInput {
+    padding: 5px 8px;
+}
+
+#themeToggle {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Dark mode */
 body.dark nav {
     background: #1f1f1f;
 }
 
-body.dark nav a {
-    color: #ffffff;        /* White text in dark mode */
+body.dark .nav-left a {
+    color: #ffffff;
 }
 
 footer {
