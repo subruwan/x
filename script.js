@@ -1,3 +1,4 @@
+/* ===== Dark Mode ===== */
 function toggleDarkMode() {
     const body = document.body;
     const toggle = document.getElementById("themeToggle");
@@ -15,30 +16,19 @@ function toggleDarkMode() {
 
 window.onload = function() {
     const toggle = document.getElementById("themeToggle");
-
     if (localStorage.getItem("theme") === "dark") {
         document.body.classList.add("dark");
         toggle.textContent = "☀️";
     }
 };
 
+/* ===== Search ===== */
 function searchPosts() {
     let input = document.getElementById("searchInput").value.toLowerCase();
     let posts = document.getElementsByClassName("post-preview");
 
     for (let i = 0; i < posts.length; i++) {
         let title = posts[i].getAttribute("data-title").toLowerCase();
-
-        if (title.includes(input)) {
-            posts[i].style.display = "";
-        } else {
-            posts[i].style.display = "none";
-        }
+        posts[i].style.display = title.includes(input) ? "" : "none";
     }
 }
-
-window.onload = function() {
-    if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark");
-    }
-};
