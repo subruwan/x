@@ -1,17 +1,11 @@
-/* ===== Dark Mode ===== */
+/* ===== Dark Mode Toggle ===== */
 function toggleDarkMode() {
     const body = document.body;
     const toggle = document.getElementById("themeToggle");
 
     body.classList.toggle("dark");
-
-    if (body.classList.contains("dark")) {
-        localStorage.setItem("theme", "dark");
-        toggle.textContent = "☀️";
-    } else {
-        localStorage.setItem("theme", "light");
-        toggle.textContent = "🌙";
-    }
+    toggle.textContent = body.classList.contains("dark") ? "☀️" : "🌙";
+    localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
 }
 
 window.onload = function() {
