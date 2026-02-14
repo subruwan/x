@@ -14,12 +14,22 @@ body.dark {
     color: #e0e0e0;
 }
 
-/* ===== Header ===== */
+/* Compact Header */
 header {
     text-align: center;
-    padding: 25px 20px;
+    padding: 15px 20px;  /* Reduced from 25px */
     background-color: #1e1e1e;
     color: #fff;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;   /* Slightly smaller */
+}
+
+header p {
+    margin: 5px 0 0 0;
+    font-size: 1rem;     /* Slightly smaller subtitle */
 }
 
 /* ===== Navigation ===== */
