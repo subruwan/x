@@ -65,3 +65,61 @@ h2 { font-size: 1.2rem; margin: 0.2rem 0; cursor: pointer; }
 h2:hover { text-decoration: underline; }
 p { color: #71717a; font-size: 0.9rem; }
 time { font-size: 0.75rem; color: #a1a1aa; }
+
+/* Article Layout */
+.content-wrapper {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.post-header h1 {
+    font-size: 2rem;
+    margin-top: 0.5rem;
+    line-height: 1.2;
+}
+
+.meta {
+    font-size: 0.8rem;
+    color: #71717a;
+    margin-bottom: 2rem;
+}
+
+/* Technical Content Styling */
+.post-body h3 { margin: 1.5rem 0 0.5rem; }
+.post-body p { margin-bottom: 1rem; line-height: 1.6; }
+
+pre {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-family: "SFMono-Regular", Consolas, monospace;
+    font-size: 0.85rem;
+    margin: 1rem 0;
+}
+
+code {
+    background: var(--card-bg);
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+blockquote {
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #71717a;
+}
+
+ul { margin: 1rem 0 1rem 1.5rem; }
+li { margin-bottom: 0.3rem; }
+
+.post-footer {
+    margin-top: 3rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+}
