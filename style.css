@@ -1,4 +1,4 @@
-/* ===== Base Styles ===== */
+/* ===== Base ===== */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -14,26 +14,34 @@ body.dark {
     color: #e0e0e0;
 }
 
-/* Header top container */
+/* ===== Header ===== */
+header {
+    background-color: #1e1e1e;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+/* Top container holds everything */
 .top-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* centers everything horizontally */
+    align-items: center; /* center everything horizontally */
     gap: 8px;
 }
 
 /* Logo + Text Block */
 .title-logo {
     display: flex;
-    align-items: center; /* vertical centering of logo relative to text */
+    align-items: center; /* vertically align logo with entire text block */
+    justify-content: center; /* center horizontally */
     gap: 8px;
-    justify-content: center; /* center the logo + text block horizontally */
 }
 
 /* Text stacked */
 .title-text {
     display: flex;
-    flex-direction: column; /* H1 above P */
+    flex-direction: column;
+    align-items: center; /* center text under logo on mobile if needed */
 }
 
 /* Logo size */
@@ -41,6 +49,17 @@ body.dark {
     width: 32px;
     height: 32px;
     object-fit: contain;
+}
+
+/* Header fonts */
+.site-title h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.site-title p {
+    margin: 2px 0 0 0;
+    font-size: 0.9rem;
 }
 
 /* ===== Nav ===== */
@@ -52,6 +71,7 @@ body.dark {
     gap: 10px;
 }
 
+/* Links */
 .nav-links a {
     text-decoration: none;
     color: #fff;
@@ -64,6 +84,7 @@ body.dark {
     text-decoration: underline;
 }
 
+/* Search + Toggle */
 .tools-right {
     display: flex;
     align-items: center;
@@ -84,7 +105,7 @@ body.dark {
     font-size: 18px;
 }
 
-/* ===== Main Container ===== */
+/* ===== Main container ===== */
 .container {
     max-width: 900px;
     margin: 20px auto;
@@ -97,14 +118,14 @@ body.dark .container {
     background-color: #1e1e1e;
 }
 
-/* ===== Post Preview ===== */
+/* Posts */
 .post-preview {
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 1px solid #ddd;
 }
 
-/* ===== Footer ===== */
+/* Footer */
 footer {
     text-align: center;
     padding: 12px 0;
@@ -119,15 +140,18 @@ footer {
         flex-direction: column;
         gap: 6px;
     }
+
     .nav-links {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 6px;
     }
+
     .tools-right {
         justify-content: center;
     }
+
     #searchInput {
         width: 120px;
     }
