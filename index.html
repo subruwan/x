@@ -17,15 +17,19 @@
 </header>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="#">Tech</a>
-    <a href="#">News</a>
-    <a href="#">About</a>
-    <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchPosts()" />
-    <span id="themeToggle" onclick="toggleDarkMode()" title="Toggle Theme" style="cursor:pointer; font-size:18px;">
-    🌙
-</span>
+    <div class="nav-left">
+        <a href="index.html">Home</a>
+        <a href="tech.html">Tech</a>
+        <a href="news.html">News</a>
+        <a href="about.html">About</a>
+    </div>
 
+    <div class="nav-right">
+        <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchPosts()">
+        <span id="themeToggle" onclick="toggleDarkMode()" title="Toggle Theme">
+            🌙
+        </span>
+    </div>
 </nav>
 
 <div class="container">
