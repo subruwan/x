@@ -1,69 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <title>Ruwan Kariyawasam | Notes & News</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tech tutorials, practical Linux guides, and daily news commentary.">
-    <link rel="icon" href="favicon.png" type="image/png">
+    <title>Tech Labs | Guides & Thoughts</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>
-    <div class="top-container">
-        <!-- Logo + Header Text -->
-        <div class="title-logo">
-            <img src="favicon.png" alt="Logo" class="logo">
-            <div class="title-text">
-                <h1>Ruwan Kariyawasam</h1>
-                <p>Tech Experiments, Practical Guides & Daily News Thoughts</p>
+    <header>
+        <nav>
+            <div class="logo">Tech<span>Labs</span></div>
+            <div class="nav-right">
+                <input type="text" id="searchInput" placeholder="Search guides...">
+                <button id="themeToggle" aria-label="Toggle Dark Mode">
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </button>
             </div>
-        </div>
+        </nav>
+    </header>
 
-        <!-- Nav + Tools -->
-        <div class="nav-tools">
-            <nav class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="tech.html">Tech</a>
-                <a href="news.html">News</a>
-                <a href="about.html">About</a>
-            </nav>
-            <div class="tools-right">
-                <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchPosts()">
-                <span id="themeToggle" onclick="toggleDarkMode()" title="Toggle Theme">🌙</span>
-            </div>
-        </div>
-    </div>
-</header>
+    <main id="content">
+        <section class="feed">
+            <article class="post-card">
+                <span class="category">Troubleshooting</span>
+                <h2>Fixing GRUB Bootloader on UEFI</h2>
+                <p>A quick note on recovering lost partitions after a Windows update...</p>
+                <time>Feb 14, 2026</time>
+            </article>
+            </section>
+    </main>
 
-<main class="container">
-    <section>
-        <h2>About This Site</h2>
-        <p>This website is a collection of technical guides, troubleshooting notes, and personal commentary on news and topics relevant to everyday life. Everything shared here is based on real experience, testing, and honest observation.</p>
-    </section>
-
-    <section>
-        <h2>Latest Posts</h2>
-        <div class="post-preview" data-title="How to Fully Remove Tor Browser from Linux Mint">
-            <h3><a href="#">How to Fully Remove Tor Browser from Linux Mint</a></h3>
-            <p>Step-by-step removal guide and cleanup process.</p>
-        </div>
-        <div class="post-preview" data-title="Fix: USB Drive Not Opening After Format">
-            <h3><a href="#">Fix: USB Drive Not Opening After Format</a></h3>
-            <p>Simple working solution using proper filesystem formatting.</p>
-        </div>
-        <div class="post-preview" data-title="Thoughts on Recent News Topic">
-            <h3><a href="#">Thoughts on [Recent News Topic]</a></h3>
-            <p>A practical look at how this issue affects everyday life.</p>
-        </div>
-    </section>
-</main>
-
-<footer>
-    <p>© 2026 Ruwan Kariyawasam | Built with GitHub Pages</p>
-</footer>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
