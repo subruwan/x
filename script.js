@@ -1,12 +1,26 @@
 function toggleDarkMode() {
-    document.body.classList.toggle("dark");
+    const body = document.body;
+    const toggle = document.getElementById("themeToggle");
 
-    if (document.body.classList.contains("dark")) {
+    body.classList.toggle("dark");
+
+    if (body.classList.contains("dark")) {
         localStorage.setItem("theme", "dark");
+        toggle.textContent = "☀️";
     } else {
         localStorage.setItem("theme", "light");
+        toggle.textContent = "🌙";
     }
 }
+
+window.onload = function() {
+    const toggle = document.getElementById("themeToggle");
+
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark");
+        toggle.textContent = "☀️";
+    }
+};
 
 function searchPosts() {
     let input = document.getElementById("searchInput").value.toLowerCase();
