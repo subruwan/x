@@ -1,19 +1,33 @@
-/* ===== Compact Top Section ===== */
+/* ===== Base Styles ===== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    background-color: #f5f5f5;
+    color: #222;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* ===== Header ===== */
 header {
     background-color: #1e1e1e;
     color: #fff;
     padding: 10px 20px;
 }
 
-/* Container for all top elements */
 .top-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
 
-/* Site title */
 .site-title h1 {
     margin: 0;
     font-size: 1.5rem;
@@ -24,7 +38,7 @@ header {
     font-size: 0.9rem;
 }
 
-/* Nav + tools container */
+/* ===== Nav ===== */
 .nav-tools {
     display: flex;
     flex-wrap: wrap;
@@ -33,7 +47,6 @@ header {
     gap: 10px;
 }
 
-/* Nav links */
 .nav-links a {
     text-decoration: none;
     color: #fff;
@@ -46,7 +59,6 @@ header {
     text-decoration: underline;
 }
 
-/* Tools: search + theme toggle */
 .tools-right {
     display: flex;
     align-items: center;
@@ -67,15 +79,33 @@ header {
     font-size: 18px;
 }
 
-/* ===== Dark Mode ===== */
-body.dark header {
-    background-color: #1f1f1f;
+/* ===== Main Container ===== */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 15px 20px;
+    background-color: #fff;
+    transition: background-color 0.3s;
 }
 
-body.dark #searchInput {
-    background-color: #2a2a2a;
+body.dark .container {
+    background-color: #1e1e1e;
+}
+
+/* ===== Post Preview ===== */
+.post-preview {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 12px 0;
+    background-color: #1e1e1e;
     color: #fff;
-    border: 1px solid #555;
+    margin-top: 20px;
 }
 
 /* ===== Responsive ===== */
@@ -84,18 +114,15 @@ body.dark #searchInput {
         flex-direction: column;
         gap: 6px;
     }
-
     .nav-links {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 6px;
     }
-
     .tools-right {
         justify-content: center;
     }
-
     #searchInput {
         width: 120px;
     }
