@@ -1,28 +1,26 @@
-/* ===== Dark Mode Toggle ===== */
-function toggleDarkMode() {
-    const body = document.body;
-    const toggle = document.getElementById("themeToggle");
+const themeToggle = document.getElementById('themeToggle');
+const html = document.documentElement;
 
-    body.classList.toggle("dark");
-    toggle.textContent = body.classList.contains("dark") ? "☀️" : "🌙";
-    localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
-}
+// Dark Mode Logic
+themeToggle.addEventListener('click', () => {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+});
 
-window.onload = function() {
-    const toggle = document.getElementById("themeToggle");
-    if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark");
-        toggle.textContent = "☀️";
-    }
-};
+// Load Saved Theme
+const savedTheme = localStorage.getItem('theme') || 'light';
+html.setAttribute('data-theme', savedTheme);
 
-/* ===== Search ===== */
-function searchPosts() {
-    let input = document.getElementById("searchInput").value.toLowerCase();
-    let posts = document.getElementsByClassName("post-preview");
+// Simple Search Filter
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('keyup', () => {
+    const term = searchInput.value.toLowerCase();
+    const posts = document.querySelectorAll('.post-card');
 
-    for (let i = 0; i < posts.length; i++) {
-        let title = posts[i].getAttribute("data-title").toLowerCase();
-        posts[i].style.display = title.includes(input) ? "" : "none";
-    }
-}
+    posts.forEach(post => {
+        const title = post.querySelector('h2').innerText.toLowerCase();
+        post.style.display = title.includes(term) ? 'block' : 'none';
+    });
+});
