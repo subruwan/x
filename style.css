@@ -37,3 +37,50 @@ time { font-size: 0.7rem; color: #a1a1aa; }
 .post-body p { margin-bottom: 0.8rem; line-height: 1.5; }
 pre { background: var(--card-bg); border: 1px solid var(--border); padding: 0.8rem; border-radius: 4px; overflow-x: auto; font-family: monospace; margin: 1rem 0; font-size: 0.85rem; }
 blockquote { border-left: 3px solid var(--accent); padding-left: 1rem; margin: 1rem 0; font-style: italic; opacity: 0.8; }
+
+.news-ticker {
+    display: flex;
+    align-items: center;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    font-size: 0.85rem;
+}
+
+.ticker-label {
+    background: var(--accent);
+    color: white;
+    padding: 4px 10px;
+    font-weight: bold;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+.ticker-content {
+    padding: 4px 12px;
+    white-space: nowrap;
+    overflow-x: auto; /* Allows you to scroll through thoughts if they are long */
+    display: flex;
+    gap: 20px;
+}
+
+.ticker-item {
+    color: var(--text);
+    flex-shrink: 0;
+}
+
+.ticker-item strong {
+    color: var(--accent);
+    margin-right: 5px;
+}
+
+/* Hide scrollbar for a cleaner look */
+.ticker-content::-webkit-scrollbar {
+    display: none;
+}
+.ticker-content {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
