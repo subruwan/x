@@ -14,20 +14,27 @@ body.dark {
     color: #e0e0e0;
 }
 
-/* Logo + Title alignment */
+/* Logo + Text Block */
 .title-logo {
     display: flex;
-    align-items: center; /* vertically align logo and title */
-    gap: 8px;            /* space between logo and text */
+    align-items: center;  /* centers logo with entire text block */
+    gap: 8px;             /* spacing between logo and text */
 }
 
+/* Text column */
+.title-text {
+    display: flex;
+    flex-direction: column; /* stack H1 above P */
+}
+
+/* Logo size */
 .logo {
-    width: 32px;         /* size similar to favicon */
+    width: 32px;
     height: 32px;
     object-fit: contain;
 }
 
-/* Header text */
+/* Optional: adjust font sizes for compact header */
 .site-title h1 {
     margin: 0;
     font-size: 1.5rem;
