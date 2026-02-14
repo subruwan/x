@@ -46,41 +46,48 @@ blockquote { border-left: 3px solid var(--accent); padding-left: 1rem; margin: 1
     border-radius: 4px;
     margin-bottom: 1.5rem;
     overflow: hidden;
-    font-size: 0.85rem;
+    height: 30px; /* Fixed height for a compact look */
 }
 
 .ticker-label {
     background: var(--accent);
     color: white;
-    padding: 4px 10px;
+    padding: 0 12px;
     font-weight: bold;
     font-size: 0.7rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 2;
     letter-spacing: 1px;
 }
 
-.ticker-content {
-    padding: 4px 12px;
-    white-space: nowrap;
-    overflow-x: auto; /* Allows you to scroll through thoughts if they are long */
+.ticker-wrapper {
+    overflow: hidden;
+    flex-grow: 1;
     display: flex;
-    gap: 20px;
+    align-items: center;
+}
+
+.ticker-content {
+    display: flex;
+    white-space: nowrap;
+    gap: 50px; /* Space between news items */
+    animation: marquee 30s linear infinite;
+}
+
+/* Pause scrolling on hover */
+.ticker-content:hover {
+    animation-play-state: paused;
 }
 
 .ticker-item {
+    font-size: 0.85rem;
     color: var(--text);
-    flex-shrink: 0;
 }
 
-.ticker-item strong {
-    color: var(--accent);
-    margin-right: 5px;
-}
-
-/* Hide scrollbar for a cleaner look */
-.ticker-content::-webkit-scrollbar {
-    display: none;
-}
-.ticker-content {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+/* The Magic Scroll Animation */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Scrolls exactly half-way (the duplicate set) */
 }
