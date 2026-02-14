@@ -14,17 +14,26 @@ body.dark {
     color: #e0e0e0;
 }
 
+/* Header top container */
+.top-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centers everything horizontally */
+    gap: 8px;
+}
+
 /* Logo + Text Block */
 .title-logo {
     display: flex;
-    align-items: center;  /* centers logo with entire text block */
-    gap: 8px;             /* spacing between logo and text */
+    align-items: center; /* vertical centering of logo relative to text */
+    gap: 8px;
+    justify-content: center; /* center the logo + text block horizontally */
 }
 
-/* Text column */
+/* Text stacked */
 .title-text {
     display: flex;
-    flex-direction: column; /* stack H1 above P */
+    flex-direction: column; /* H1 above P */
 }
 
 /* Logo size */
@@ -32,17 +41,6 @@ body.dark {
     width: 32px;
     height: 32px;
     object-fit: contain;
-}
-
-/* Optional: adjust font sizes for compact header */
-.site-title h1 {
-    margin: 0;
-    font-size: 1.5rem;
-}
-
-.site-title p {
-    margin: 2px 0 0 0;
-    font-size: 0.9rem;
 }
 
 /* ===== Nav ===== */
