@@ -21,31 +21,31 @@ header {
 }
 
 nav {
+    background: #eaeaea;   /* Light background */
+    padding: 10px 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 20px;
 }
 
 nav a {
-    color: white;
+    color: #222;           /* Dark text in light mode */
     text-decoration: none;
-    margin: 0 15px;
+    margin-right: 15px;
+    font-weight: 500;
 }
 
 nav a:hover {
     text-decoration: underline;
 }
 
-.container {
-    max-width: 900px;
-    margin: 25px auto;
-    padding: 20px;
-    background: #fff;
+/* Dark mode styles */
+body.dark nav {
+    background: #1f1f1f;
 }
 
-body.dark .container {
-    background: #1e1e1e;
+body.dark nav a {
+    color: #ffffff;        /* White text in dark mode */
 }
 
 footer {
