@@ -29,25 +29,24 @@ header {
     gap: 8px;
 }
 
-/* ===== Title + Logo Flex ===== */
-.title-logo {
-    display: flex;
-    align-items: stretch; /* stretch logo to match text height */
-    justify-content: center;
-    gap: 8px;
-}
-
-/* Make the logo scale with text */
-.logo {
-    height: 100%; /* stretch to fill parent (title-logo) height */
-    width: auto;  /* maintain aspect ratio */
-}
-
-/* Remove extra spacing between title & tagline */
-.title-text h1,
-.title-text p {
+/* ===== Title spacing ===== */
+.site-title h1 {
     margin: 0;
-    line-height: 1;
+    font-size: 1.5rem;
+    line-height: 1; /* remove extra space */
+}
+
+.site-title p {
+    margin: 0; /* remove gap between title and tagline */
+    font-size: 0.9rem;
+    line-height: 1; /* tighter spacing */
+}
+
+/* ===== Logo size ===== */
+/* Make logo roughly match the combined height of title + tagline */
+.logo {
+    height: calc(1.5rem + 0.9rem); /* h1 font-size + p font-size */
+    width: auto; /* keep aspect ratio */
 }
 
 /* ===== Nav ===== */
