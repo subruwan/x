@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Title | TechLabs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">Tech<span>Labs</span></a></div>
+            <button id="themeToggle">Toggle Theme</button>
+        </nav>
+    </header>
+
+    <article class="content-wrapper">
+        <header class="post-header">
+            <span class="category">Practical Guide</span>
+            <h1>How to Automate Backups with Rclone</h1>
+            <div class="meta">Published: Feb 14, 2026 • 5 min read</div>
+        </header>
+
+        <section class="post-body">
+            <p>Today I tested a new backup routine using Rclone. Here is the honest observation: it's faster than GUI tools but requires specific flags to avoid API rate limits.</p>
+            
+            <h3>The Setup</h3>
+            <p>First, install the package and run the config:</p>
+            <pre><code>sudo apt install rclone
+rclone config</code></pre>
+
+            <blockquote>
+                <strong>Note:</strong> Always test your sync commands with <code>--dry-run</code> before committing to a cloud transfer.
+            </blockquote>
+
+            <ul>
+                <li><strong>Experiment:</strong> Syncing 50GB of raw logs.</li>
+                <li><strong>Result:</strong> Successful with 0% data loss.</li>
+            </ul>
+        </section>
+        
+        <footer class="post-footer">
+            <a href="index.html">← Back to Feed</a>
+        </footer>
+    </article>
+
+    <script src="script.js"></script>
+</body>
+</html>
