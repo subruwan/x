@@ -55,3 +55,8 @@ if (ticker) {
     const clone = ticker.innerHTML;
     ticker.innerHTML += clone; // This doubles the content automatically
 }
+
+document.getElementById('backToTop')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
