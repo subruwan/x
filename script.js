@@ -77,3 +77,18 @@ function calculateReadingTime() {
 
 // Run it after the page loads
 window.addEventListener('DOMContentLoaded', calculateReadingTime);
+
+// Highlight Active Page in Nav
+function highlightActiveNav() {
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    navLinks.forEach(link => {
+        // Check if the link's href matches the current path
+        if (currentPath.includes(link.getAttribute('href').replace('../', ''))) {
+            link.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('DOMContentLoaded', highlightActiveNav);
