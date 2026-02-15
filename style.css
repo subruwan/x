@@ -171,3 +171,28 @@ footer { margin-top: 4rem; padding: 2rem 1rem; border-top: 1px solid var(--borde
 #searchInput:focus {
     border-color: var(--accent);
 }
+
+.share-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.2s ease;
+}
+
+.share-button:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+.share-button svg {
+    opacity: 0.8;
+}
