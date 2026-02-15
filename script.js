@@ -37,3 +37,23 @@ document.getElementById('backToTop')?.addEventListener('click', (e) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+function updateClock() {
+    const clockElement = document.getElementById('clockTime');
+    if (!clockElement) return;
+
+    const options = {
+        timeZone: 'Asia/Colombo',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+    };
+
+    const srilankaTime = new Intl.DateTimeFormat('en-GB', options).format(new Date());
+    clockElement.textContent = srilankaTime;
+}
+
+// Update every second
+setInterval(updateClock, 1000);
+updateClock(); // Initial call
