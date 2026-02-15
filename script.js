@@ -94,3 +94,32 @@ document.addEventListener('DOMContentLoaded', () => {
             }).catch(() => updateEl.innerText = "");
     }
 });
+
+// --- 6. TICKER ANIMATION ---
+    const tickerContent = document.querySelector('.ticker-content');
+    if (tickerContent) {
+        // Clone the content to create a seamless loop
+        const clone = tickerContent.innerHTML;
+        tickerContent.innerHTML += clone + clone; // Triple it for safety on wide screens
+
+        let scrollAmount = 0;
+        function step() {
+            scrollAmount += 0.8; // Speed of scroll
+            if (scrollAmount >= tickerContent.scrollWidth / 3) {
+                scrollAmount = 0;
+            }
+            tickerContent.style.transform = `translateX(-${scrollAmount}px)`;
+            requestAnimationFrame(step);
+        }
+        
+        // Pause on hover
+        let paused = false;
+        tickerContent.addEventListener('mouseenter', () => paused = true);
+        tickerContent.addEventListener('mouseleave', () => paused = false);
+
+        function animate() {
+            if (!paused) step();
+            else requestAnimationFrame(animate);
+        }
+        requestAnimationFrame(step);
+    }
