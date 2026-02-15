@@ -47,3 +47,30 @@ footer { margin-top: 4rem; padding: 2rem 1rem; border-top: 1px solid var(--borde
 /* Utilities */
 #searchInput { background: var(--card-bg); border: 1px solid var(--border); color: var(--text); padding: 4px 8px; border-radius: 4px; }
 #themeToggle { background: none; border: none; cursor: pointer; color: var(--text); }
+
+.clock-widget {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 15px;
+    font-family: monospace;
+    line-height: 1;
+}
+
+.clock-label {
+    font-size: 0.6rem;
+    color: var(--accent);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#clockTime {
+    font-size: 0.85rem;
+    color: var(--text);
+    opacity: 0.9;
+}
+
+/* Hide clock on very small screens to save space */
+@media (max-width: 480px) {
+    .clock-widget { display: none; }
+}
