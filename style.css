@@ -103,3 +103,20 @@ footer { margin-top: 4rem; padding: 2rem 1rem; border-top: 1px solid var(--borde
         box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
     }
 }
+
+.post-meta {
+    font-size: 0.75rem;
+    color: #71717a;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dot {
+    opacity: 0.5;
+}
+
+.reading-time {
+    font-style: italic;
+}
