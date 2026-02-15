@@ -123,3 +123,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         requestAnimationFrame(step);
     }
+
+// --- 7. SHARE POST FUNCTIONALITY ---
+    const shareBtn = document.getElementById('shareBtn');
+    if (shareBtn) {
+        shareBtn.addEventListener('click', async () => {
+            const shareData = {
+                title: document.title,
+                text: 'Check out this observation from TechLabs:',
+                url: window.location.href
+            };
+
+            try {
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                } else {
+                    // Fallback for Desktop: Copy to clipboard
+                    await navigator.clipboard.writeText(window.location.href);
+                    const originalText = shareBtn.innerHTML;
+                    shareBtn.innerText = "Link Copied!";
+                    setTimeout(() => { shareBtn.innerHTML = originalText; }, 2000);
+                }
+            } catch (err) {
+                console.log('Error sharing:', err);
+            }
+        });
+    }
