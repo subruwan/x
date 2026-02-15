@@ -149,31 +149,3 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-// --- 8. AUTO TABLE OF CONTENTS ---
-function generateToC() {
-    const tocList = document.getElementById('toc-list');
-    const headers = document.querySelectorAll('.post-content h2');
-    
-    if (!tocList || headers.length === 0) return;
-
-    headers.forEach(header => {
-        // Ensure every H2 has an ID
-        if (!header.id) {
-            header.id = header.textContent.toLowerCase().replace(/\s+/g, '-');
-        }
-
-        const link = document.createElement('a');
-        link.href = `#${header.id}`;
-        link.textContent = header.textContent;
-        
-        // Smooth scroll effect
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            document.getElementById(header.id).scrollIntoView({ behavior: 'smooth' });
-        });
-
-        tocList.appendChild(link);
-    });
-}
-generateToC();
