@@ -57,3 +57,23 @@ function updateClock() {
 // Update every second
 setInterval(updateClock, 1000);
 updateClock(); // Initial call
+
+function calculateReadingTime() {
+    const posts = document.querySelectorAll('.post-card');
+    const wordsPerMinute = 200;
+
+    posts.forEach(post => {
+        // Get text from title and summary
+        const text = post.querySelector('h2').innerText + " " + post.querySelector('p').innerText;
+        const words = text.trim().split(/\s+/).length;
+        const time = Math.ceil(words / wordsPerMinute);
+        
+        const timeElement = post.querySelector('.reading-time');
+        if (timeElement) {
+            timeElement.innerText = `${time} min read`;
+        }
+    });
+}
+
+// Run it after the page loads
+window.addEventListener('DOMContentLoaded', calculateReadingTime);
