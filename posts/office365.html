@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Installing Office 365 on Linux via Wine Was a Mistake</title>
+    <link rel="icon" href="../favicon.png"><link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-links">
+                <a href="../index.html" class="logo">Tech<span>Labs</span></a>
+                <a href="../about.html">About</a>
+            </div>
+            <div class="nav-right"><input type="text" id="searchInput" placeholder="Search...">
+                <button id="themeToggle" title="Toggle Dark Mode"></button></div>
+        </nav>
+    </header>
+    <article class="content-wrapper post-body">
+        <span class="category">Linux</span>
+        <h1>Why Installing Office 365 on Linux via Wine Was a Mistake</h1>
+        <p>I tried running Microsoft Office 365 on Linux using a WineCX script I found on YouTube. The promise? “Office works perfectly.” Reality? Total chaos.</p>
+        <h2>What Happened</h2>
+        <ul><li><b>Access</b> loaded fine.</li>
+        <li><b>Word, Excel, PowerPoint</b> crashed immediately or refused to maximize.</li>
+        <li>UI was entirely in Spanish, no matter what I did.</li>
+        <li>Wine services kept running in the background, confusing everything.</li></ul>
+        <p>I tried fixes like winecfg, virtual desktops & disabling hardware acceleration. Some helped slightly; some made things worse. Office 365 under Wine simply isn’t stable.</p>
+        <h2>Cleaning Up</h2>
+        <p>After enough frustration, I decided to remove it all:</p>
+        <code>pkill -9 -f wine<br>
+sudo dpkg -r winecx<br>
+sudo apt remove --purge wine wine32 wine64 winetricks msitools<br>
+rm -rf ~/.Microsoft_Office_365 ~/.wine ~/Downloads/MSO365 ~/Downloads/MSO365.zip ~/Downloads/instalar-office365-winecx.sh<br>
+sudo rm -f /usr/share/applications/*365.desktop<br>
+sudo rm -f /usr/share/icons/hicolor/256x256/apps/*365.svg<br>
+sudo gtk-update-icon-cache /usr/share/icons/hicolor/</code>
+        <p>LibreOffice continued working perfectly & my system was clean.</p>
+        <h2>Lessons Learned</h2>
+        <ol><li><b>Wine is not Office’s friend.</b> Office relies on Windows APIs that Wine only partially emulates.</li>
+        <li><b>CrossOver Wine isn’t magic.</b> It may include Office patches, but it’s still fragile & difficult to upgrade.</li>
+        <li><b>VMs are the safe option.</b> If you need Office 365 on Linux, run Windows in VirtualBox & install Office there. It works reliably.</li>
+        <li><b>YouTube tutorials lie.</b> Easy setup videos often skip the “it might crash” part.</li></ol>
+        <h2>The Bottom Line</h2>
+        <p>LibreOffice is reliable. Wine-based Office 365 is not. Sometimes the best lesson is learning what not to do. Don’t waste hours chasing broken setups—use a VM or stick with software that actually works on Linux.</p>
+        <div class="post-footer">
+    <span id="lastUpdated">Syncing with GitHub...</span>
+</div>
+        <button id="shareBtn" class="share-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+    Share Post
+</button>
+    </article>
+    <script src="../script.js"></script>
+</body>
+</html>
