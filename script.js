@@ -23,31 +23,49 @@ if (ticker) {
 }
 
 // 3. Search Functionality
-if (searchInput) {
-    searchInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            const term = searchInput.value.toLowerCase();
-            const isHomePage = window.location.pathname === '/x/' || window.location.pathname.endsWith('index.html');
+const searchInput = document.getElementById('searchInput');
 
-            if (!isHomePage) {
-                // Redirect to home with the search term as a URL parameter
+if (searchInput) {
+    // 1. Handle Typing
+    searchInput.addEventListener('keydown', (e) => {
+        // Detect if we are on the Home page (checking for the /x/ subfolder)
+        const isHomePage = window.location.pathname === '/x/' || window.location.pathname.endsWith('index.html');
+
+        if (e.key === 'Enter') {
+            const term = searchInput.value.trim();
+            if (!isHomePage && term.length > 0) {
+                // REDIRECT: Send user to home with the search query in the URL
                 window.location.href = `/x/index.html?search=${encodeURIComponent(term)}`;
             }
         }
     });
 
-    // If we are on the home page, check if there's a search term in the URL
-    window.addEventListener('DOMContentLoaded', () => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const searchTerm = urlParams.get('search');
-        if (searchTerm) {
-            searchInput.value = searchTerm;
-            // Trigger the search filter logic
-            const event = new Event('keyup');
-            searchInput.dispatchEvent(event);
+    // 2. Live Filter (Existing logic, but we trigger it)
+    searchInput.addEventListener('keyup', () => {
+        const term = searchInput.value.toLowerCase();
+        const posts = document.querySelectorAll('.post-card');
+        if (posts.length > 0) {
+            posts.forEach(card => {
+                const isMatch = card.innerText.toLowerCase().includes(term);
+                card.style.display = isMatch ? 'block' : 'none';
+            });
         }
     });
 }
+
+// 3. Page Load Check: If URL has ?search=term, apply it immediately
+window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchTerm = urlParams.get('search');
+    
+    if (searchTerm && searchInput) {
+        searchInput.value = searchTerm;
+        // Small delay to ensure posts are rendered before filtering
+        setTimeout(() => {
+            searchInput.dispatchEvent(new Event('keyup'));
+        }, 100);
+    }
+});
 
 // 4. Back to Top
 document.getElementById('backToTop')?.addEventListener('click', (e) => {
