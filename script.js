@@ -92,3 +92,26 @@ function highlightActiveNav() {
 }
 
 window.addEventListener('DOMContentLoaded', highlightActiveNav);
+
+document.getElementById('shareBtn')?.addEventListener('click', async () => {
+    const shareData = {
+        title: document.title,
+        text: 'Check out this observation from TechLabs:',
+        url: window.location.href
+    };
+
+    try {
+        if (navigator.share) {
+            await navigator.share(shareData);
+        } else {
+            // Fallback: Copy to clipboard
+            await navigator.clipboard.writeText(window.location.href);
+            const btn = document.getElementById('shareBtn');
+            const originalText = btn.innerHTML;
+            btn.innerText = "Link Copied!";
+            setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+        }
+    } catch (err) {
+        console.log('Error sharing:', err);
+    }
+});
