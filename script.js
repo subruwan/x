@@ -115,3 +115,35 @@ document.getElementById('shareBtn')?.addEventListener('click', async () => {
         console.log('Error sharing:', err);
     }
 });
+
+async function getGitHubLastUpdated() {
+    const statusElement = document.getElementById('lastUpdated');
+    if (!statusElement) return;
+
+    // This gets the filename from the URL (e.g., "sri-lanka.html")
+    const pathArray = window.location.pathname.split('/');
+    const fileName = pathArray[pathArray.length - 1];
+    
+    // Change 'subruwan' and 'x' to your actual GitHub username and repo name
+    const repo = 'subruwan/x'; 
+    const apiUrl = `https://api.github.com/repos/${repo}/commits?path=posts/${fileName}&page=1&per_page=1`;
+
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        if (data && data.length > 0) {
+            const lastUpdate = new Date(data[0].commit.committer.date);
+            const formattedDate = lastUpdate.toLocaleDateString('en-GB', {
+                day: 'numeric', month: 'short', year: 'numeric'
+            });
+            statusElement.innerText = `System Last Updated: ${formattedDate}`;
+        } else {
+            statusElement.innerText = "Status: Static Observation";
+        }
+    } catch (err) {
+        statusElement.innerText = "Status: Offline Mode";
+    }
+}
+
+window.addEventListener('DOMContentLoaded', getGitHubLastUpdated);
