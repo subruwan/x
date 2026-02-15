@@ -24,11 +24,28 @@ if (ticker) {
 
 // 3. Search Functionality
 if (searchInput) {
-    searchInput.addEventListener('keyup', () => {
-        const term = searchInput.value.toLowerCase();
-        document.querySelectorAll('.post-card').forEach(card => {
-            card.style.display = card.innerText.toLowerCase().includes(term) ? 'block' : 'none';
-        });
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            const term = searchInput.value.toLowerCase();
+            const isHomePage = window.location.pathname === '/x/' || window.location.pathname.endsWith('index.html');
+
+            if (!isHomePage) {
+                // Redirect to home with the search term as a URL parameter
+                window.location.href = `/x/index.html?search=${encodeURIComponent(term)}`;
+            }
+        }
+    });
+
+    // If we are on the home page, check if there's a search term in the URL
+    window.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchTerm = urlParams.get('search');
+        if (searchTerm) {
+            searchInput.value = searchTerm;
+            // Trigger the search filter logic
+            const event = new Event('keyup');
+            searchInput.dispatchEvent(event);
+        }
     });
 }
 
