@@ -170,6 +170,9 @@ footer { margin-top: 4rem; padding: 2rem 1rem; border-top: 1px solid var(--borde
 
 #searchInput:focus {
     border-color: var(--accent);
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.2); /* Subtle glow */
+    width: 200px; /* Optional: expands slightly when clicking */
+    transition: all 0.3s ease;
 }
 
 .share-button {
