@@ -149,3 +149,26 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+// --- 8. CLICK TO COPY REFERRAL ---
+    const copyBtn = document.getElementById('copyCode');
+    const copyStatus = document.getElementById('copyStatus');
+
+    if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+            const code = copyBtn.innerText.trim();
+            navigator.clipboard.writeText(code).then(() => {
+                // Visual feedback
+                copyStatus.innerText = "Copied to clipboard!";
+                copyBtn.style.borderColor = "var(--accent)";
+                
+                // Reset after 3 seconds
+                setTimeout(() => {
+                    copyStatus.innerText = "";
+                    copyBtn.style.borderColor = "var(--border)";
+                }, 3000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+    }
