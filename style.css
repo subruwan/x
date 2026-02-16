@@ -85,3 +85,25 @@ footer { margin-top: 5rem; padding: 3rem 1rem; border-top: 1px solid var(--borde
     .logo { font-size: 0.9rem !important; }
     .footer-content { flex-direction: column; gap: 1.5rem; text-align: center; }
 }
+
+/* Referral Box Styling */
+.referral-box {
+    background: var(--card-bg);
+    border: 1px solid var(--accent);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    text-align: center; /* This keeps the box content centered */
+}
+
+.promo-code {
+    display: inline-block;
+    font-family: monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 8px 20px;
+    background: var(--bg);
+    border: 1px dashed var(--accent);
+    margin: 10px 0;
+    letter-spacing: 2px;
+}
