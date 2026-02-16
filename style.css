@@ -119,3 +119,9 @@ footer { margin-top: 5rem; padding: 3rem 1rem; border-top: 1px solid var(--borde
     margin: 10px 0;
     letter-spacing: 2px;
 }
+
+.promo-code:hover {
+    background: var(--card-bg);
+    border-style: solid; /* Changes from dashed to solid on hover */
+    color: var(--accent);
+}
