@@ -86,7 +86,7 @@ footer { margin-top: 5rem; padding: 3rem 1rem; border-top: 1px solid var(--borde
     .footer-content { flex-direction: column; gap: 1.5rem; text-align: center; }
 }
 
-/* Referral Box Styling */
+/* 10. Referral Box Styling */
 .referral-box {
     background: var(--card-bg);
     border: 1px solid var(--accent);
@@ -124,4 +124,48 @@ footer { margin-top: 5rem; padding: 3rem 1rem; border-top: 1px solid var(--borde
     background: var(--card-bg);
     border-style: solid; /* Changes from dashed to solid on hover */
     color: var(--accent);
+}
+
+/* --- 11. RELATED POSTS --- */
+.related-posts {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+.related-title {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: #71717a;
+    margin-bottom: 1.5rem;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.related-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: 0.2s ease;
+}
+
+.related-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.related-card h4 {
+    margin-top: 8px;
+    font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+    .related-grid { grid-template-columns: 1fr; }
 }
