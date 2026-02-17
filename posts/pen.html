@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giving Your Old USB Drive a New Life in Linux Mint XFCE</title>
+    <link rel="icon" href="../favicon.png"><link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-links">
+                <a href="../index.html" class="logo">Tech<span>Labs</span></a>
+                <a href="../about.html">About</a>
+            </div>
+            <div class="nav-right"><input type="text" id="searchInput" placeholder="Search...">
+                <button id="themeToggle" title="Toggle Dark Mode"></button></div>
+        </nav>
+    </header>
+    <article class="content-wrapper post-body">
+        <span class="category">News</span>
+        <h1>Giving Your Old USB Drive a New Life in Linux Mint XFCE</h1>
+        <p>I recently decided to repurpose an old pen drive that I had used as a Windows recovery stick. The goal was simple: make it usable again in Linux Mint XFCE & fill it with Pirith for my father. Here’s what I did.</p>
+      <h2>Step 1: Check the Pen Drive</h2>
+      <p>1<sup>st</sup>, I verified that Linux recognized the device. Using lsblk, I could see the drive & its partition:</p>
+      <code>sdc      1.9G  disk<br>
+└─sdc1   1.9G  vfat  RECOVERY</code>
+      <p>This confirmed that the hardware was fine & the filesystem intact. The drive wasn’t auto-mounting in Thunar, but manual mounting worked perfectly, showing all files.</p>
+      <h2>Step 2: Clean Up Old Recovery Files</h2>
+      <p>Since this drive was previously a Windows recovery stick, it contained files & hidden flags meant for system recovery. To make it usable for my purpose, I decided to format the existing partition & give it a new label. This removed all old recovery files & any leftover system hints.</p>
+      <h2>Step 3: Format the Partition</h2>
+      <p>Formatting was straightforward. I ran: <code>sudo mkfs.vfat -n "Pirith" /dev/sdc1</code></p>
+      <p>This:</p>
+      <ul><li>Created a clean FAT32 filesystem</li>
+      <li>Renamed the drive to Pirith</li>
+      <li>Preserved the full usable space (~2 GB)</li>
+      <li>Removed the old recovery files & flags that were preventing auto-mount</li></ul>
+      <h2>Step 4: Test Auto-Mount</h2>
+      <p>After unplugging & re-plugging the drive, it mounted automatically in Thunar. The drive opened immediately, ready for file transfers.</p>
+      <h2>Outcome</h2>
+      <p>The pen drive is now:</p>
+      <ul><li>Fully readable & writable in Linux Mint XFCE</li>
+      <li>Free of old Windows recovery files</li>
+      <li>Labeled Pirith</li>
+      <li>Auto-mounting every time it’s plugged in</li></ul>
+      <p>It’s clean, simple & ready to be used for Pirith without any leftover quirks from its past life as a recovery drive.</p>
+        <div class="post-footer">
+    <span id="lastUpdated">Syncing with GitHub...</span>
+</div>
+        <button id="shareBtn" class="share-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+    Share Post
+</button>
+    </article>
+    <script src="../script.js"></script>
+</body>
+</html>
