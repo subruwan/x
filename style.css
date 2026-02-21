@@ -169,3 +169,5 @@ footer { margin-top: 5rem; padding: 3rem 1rem; border-top: 1px solid var(--borde
 @media (max-width: 600px) {
     .related-grid { grid-template-columns: 1fr; }
 }
+
+.category.community { color: #8b5cf6; } /* A vibrant purple for social/community */
