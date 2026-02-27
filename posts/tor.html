@@ -1,1 +1,52 @@
-
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix “Untrusted Application Launcher” for Tor Browser on Linux</title>
+    <link rel="icon" href="../favicon.png"><link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-links">
+                <a href="../index.html" class="logo">Tech<span>Labs</span></a>
+                <a href="../about.html">About</a>
+            </div>
+            <div class="nav-right"><input type="text" id="searchInput" placeholder="Search...">
+                <button id="themeToggle" title="Toggle Dark Mode"></button></div>
+        </nav>
+    </header>
+    <article class="content-wrapper post-body">
+        <span class="category">Linux</span>
+        <h1>Fix “Untrusted Application Launcher” for Tor Browser on Linux</h1>
+        <p>When launching Tor Browser on Linux, you might see an “<b>Untrusted application launcher</b>” warning. This happens even if Tor was downloaded from the official site. The issue isn’t Tor. It’s how Linux treats .desktop launcher files.</p>
+      <h2>Why the Warning Appears</h2>
+      <p>Linux desktop environments don’t trust launcher files that:</p>
+      <ul><li>Live in non-standard locations (like your home folder)</li>
+      <li>Aren’t marked as executable</li></ul>
+      <p>This is a security feature, not a bug.</p>
+      <h2>The Proper Fix</h2>
+      <p>Move the Tor launcher to the user applications directory & mark it executable.</p>
+      <p><b>Steps</b></p>
+      <code>mkdir -p ~/.local/share/applications<br>
+      mv ~/tor-browser/start-tor-browser.desktop ~/.local/share/applications/<br>
+      chmod +x ~/.local/share/applications/start-tor-browser.desktop</code>
+      <p>Adjust the path if your tor-browser folder is elsewhere.</p>
+      <h2>What This Fix Does</h2>
+      <ul><li>Removes the warning permanently</li>
+      <li>Adds Tor Browser to your Application Menu</li>
+      <li>Allows pinning to panel or favorites</li></ul>
+      <p>No root access. No system-wide install. No security compromise.</p>
+      <h2>Conclusion</h2>
+      <p>The “Untrusted application launcher” warning is about <b>desktop integration</b>, not Tor itself. Placing the launcher in <code>~/.local/share/applications</code> tells Linux it’s a legitimate app. Once done, Tor launches cleanly like any other application.</p>
+        <div class="post-footer">
+    <span id="lastUpdated">Syncing with GitHub...</span>
+</div>
+        <button id="shareBtn" class="share-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+    Share Post
+</button>
+    </article>
+    <script src="../script.js"></script>
+</body>
+</html>
