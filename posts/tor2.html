@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fix “Untrusted Application Launcher” for Tor Browser on Linux</title>
+    <title>How to Completely Remove Tor Browser from Linux Mint (XFCE)</title>
     <link rel="icon" href="../favicon.png"><link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -18,33 +18,39 @@
     </header>
     <article class="content-wrapper post-body">
         <span class="category">Linux</span>
-        <h1>Fix “Untrusted Application Launcher” for Tor Browser on Linux</h1>
-        <p>When launching Tor Browser on Linux, you might see an “<b>Untrusted application launcher</b>” warning. This happens even if Tor was downloaded from the official site. The issue isn’t Tor. It’s how Linux treats .desktop launcher files.</p>
-      <h2>Why the Warning Appears</h2>
-      <p>Linux desktop environments don’t trust launcher files that:</p>
-      <ul><li>Live in non-standard locations (like your home folder)</li>
-      <li>Aren’t marked as executable</li></ul>
-      <p>This is a security feature, not a bug.</p>
-      <h2>The Proper Fix</h2>
-      <p>Move the Tor launcher to the user applications directory & mark it executable.</p>
-      <p><b>Steps</b></p>
-      <code>mkdir -p ~/.local/share/applications<br>
-      mv ~/tor-browser/start-tor-browser.desktop ~/.local/share/applications/<br>
-      chmod +x ~/.local/share/applications/start-tor-browser.desktop</code>
-      <p>Adjust the path if your tor-browser folder is elsewhere.</p>
-      <h2>What This Fix Does</h2>
-      <ul><li>Removes the warning permanently</li>
-      <li>Adds Tor Browser to your Application Menu</li>
-      <li>Allows pinning to panel or favorites</li></ul>
-      <p>No root access. No system-wide install. No security compromise.</p>
-      <h2>Conclusion</h2>
-      <p>The “Untrusted application launcher” warning is about <b>desktop integration</b>, not Tor itself. Placing the launcher in <code>~/.local/share/applications</code> tells Linux it’s a legitimate app. Once done, Tor launches cleanly like any other application.</p>
+        <h1>How to Completely Remove Tor Browser from Linux Mint (XFCE)</h1>
+        <p>If you installed Tor Browser manually on Linux Mint (XFCE) & want to remove it completely, the process is simple. Since Tor Browser is usually distributed as a standalone package (not installed system-wide), removal mainly involves deleting its folder & related desktop entries. This guide walks you through removing Tor Browser & cleaning up leftover files.</p>
+        <h2>Scenario</h2>
+        <p>If you previously moved the desktop launcher using:</p>
+        <code>mkdir -p ~/.local/share/applications<br>
+        mv ~/tor-browser/start-tor-browser.desktop ~/.local/share/applications/<br>
+        chmod +x ~/.local/share/applications/start-tor-browser.desktop</code>
+        <p>Then Tor was installed manually in your home directory. Follow the steps below to remove it completely.</p>
+        <h2>Step 1: Remove the Tor Browser Folder</h2>
+        <p>Tor Browser typically resides in your home directory. 1<sup>st</sup>, check its exact name: <code>ls ~ | grep tor</code></p>
+        <p>You might see something like: <code>tor-browser or tor-browser_en-US</code></p>
+        <p>Remove it using: <code>rm -rf ~/tor-browser</code></p>
+        <p>Replace the folder name if needed.</p>
+        <h2>Step 2: Remove the Desktop Entry</h2>
+        <p>Since you manually moved the launcher file, delete it:<br>
+        <code>rm ~/.local/share/applications/start-tor-browser.desktop</code></p>
+        <p>This removes Tor from your application menu.</p>
+        <h2>Step 3: Remove Tor Browser Profile Data (Optional but Recommended)</h2>
+        <p>Tor Browser stores user data & profiles in: <code>~/.local/share/torbrowser</code></p>
+        <p>To remove it: <code>rm -rf ~/.local/share/torbrowser</code></p>
+        <p>This ensures no leftover configuration or browsing data remains.</p>
+        <h2>Step 4: Verify Nothing Remains</h2>
+        <p>To check for any remaining Tor-related files: <code>ls -a ~ | grep tor</code></p>
+        <p>If nothing appears, Tor Browser has been fully removed.</p>
+        <h2>Conclusion</h2>
+        <p>Removing Tor Browser from Linux Mint is straightforward when installed manually. Since it does not modify system files by default, cleanup mainly involves deleting its folder, desktop entry & optional profile data.</p>
+        <p>With these steps completed, your system should be fully cleared of Tor Browser.</p>
         <section class="related-posts">
     <h3 class="related-title">CONTINUE OBSERVING</h3>
     <div class="related-grid">
-        <a href="tor2.html" class="related-card">
+        <a href="tor.html" class="related-card">
             <span class="category">Linux</span>
-            <h4>How to Completely Remove Tor Browser from Linux Mint (XFCE)</h4>
+            <h4>Fix “Untrusted Application Launcher” for Tor Browser on Linux</h4>
         </a>
 
         <a href="pen.html" class="related-card">
