@@ -1,17 +1,15 @@
 # 🧪 TechLabs | Honest Observations
 
-A minimalist, high-performance static site for documenting technical experiments, troubleshooting notes & daily tech news observations.
+A minimalist, high-performance static site for notes & daily news observations.
 
 ## 🚀 Key Features
 - **Ultra-Lightweight:** No frameworks, just vanilla HTML, CSS & JS.
 - **Dark Mode:** System-aware with manual toggle & persistence.
-- **Live Search:** Instant filtering of technical guides on the homepage.
 - **News Ticker:** An automated CSS marquee for daily "LATEST" updates.
-- **Responsive Tables:** Clean data presentation for "Honest Observation" reports.
 
 ## 📁 Project Structure
 - `index.html`: The main feed & news marquee.
-- `about.html`: Philosophy & contact info.
+- `tools.html`: Tools info.
 - `style.css`: Unified styling for light/dark modes.
 - `script.js`: Search logic, theme switching & ticker automation.
 - `/posts/`: Directory containing all technical guides (HTML).
